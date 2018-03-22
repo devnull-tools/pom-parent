@@ -7,8 +7,6 @@ mvn:publish:sonatype:
   stage: release
   script:
     - mvn -P sign,public clean deploy
-  dependencies:
-    - mvn:package
   only:
     - tags
 
@@ -16,8 +14,6 @@ mvn:publish:internal:
   stage: release
   script:
     - mvn -P private clean deploy
-  dependencies:
-    - mvn:package
   only:
     - tags
     - /^release\/.*$/
