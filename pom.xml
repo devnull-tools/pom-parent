@@ -32,7 +32,7 @@
   <artifactId>parent</artifactId>
   <packaging>pom</packaging>
 
-  <version>1.2.1</version>
+  <version>1.2.2</version>
   <name>parent</name>
 
   <description>
@@ -111,6 +111,7 @@
     <profile>
       <id>public</id>
       <properties>
+        <maven.deploy.skip>true</maven.deploy.skip>
         <distribution.id>oss-sonatype</distribution.id>
         <distribution.url>https://oss.sonatype.org/</distribution.url>
         <distribution.url.release>https://oss.sonatype.org/service/local/staging/deploy/maven2/</distribution.url.release>
@@ -191,7 +192,7 @@
         <artifactId>maven-deploy-plugin</artifactId>
         <version>${maven-deploy-plugin.version}</version>
         <configuration>
-          <skip>true</skip>
+          <skip>${maven.deploy.skip}</skip>
         </configuration>
       </plugin>
       <plugin>
