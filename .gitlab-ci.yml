@@ -1,17 +1,7 @@
 image: devnull-tools/maven
 
 stages:
-  - build
   - release
-
-mvn:package:
-  stage: build
-  artifacts:
-    expire_in: 1 day
-    paths:
-      - target/*
-  script:
-    - mvn package
 
 mvn:publish:sonatype:
   stage: release
@@ -30,4 +20,4 @@ mvn:publish:internal:
     - mvn:package
   only:
     - tags
-    - /^release-.*$/
+    - /^release\/.*$/
