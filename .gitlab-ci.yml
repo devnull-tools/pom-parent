@@ -27,7 +27,7 @@ mvn:publish:internal:
   script:
     - mvn -P private clean deploy
   dependencies:
-    - mvn:test
+    - mvn:package
   only:
     - tags
     - /^release-.*$/
