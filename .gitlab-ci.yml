@@ -16,4 +16,3 @@ mvn:publish:internal:
     - mvn -P private clean deploy
   only:
     - tags
-    - /^release\/.*$/
