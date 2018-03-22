@@ -32,7 +32,7 @@
   <artifactId>parent</artifactId>
   <packaging>pom</packaging>
 
-  <version>1.1</version>
+  <version>1.2</version>
   <name>parent</name>
 
   <description>
@@ -107,6 +107,15 @@
           </plugin>
         </plugins>
       </build>
+    </profile>
+    <profile>
+      <id>public</id>
+      <properties>
+        <distribution.id>oss-sonatype</distribution.id>
+        <distribution.url>https://oss.sonatype.org/</distribution.url>
+        <distribution.url.release>https://oss.sonatype.org/service/local/staging/deploy/maven2/</distribution.url.release>
+        <distribution.url.snapshot>https://oss.sonatype.org/content/repositories/snapshots</distribution.url.snapshot>
+      </properties>
     </profile>
   </profiles>
 
@@ -184,8 +193,8 @@
         <version>${nexus-staging-maven-plugin.version}</version>
         <extensions>true</extensions>
         <configuration>
-          <serverId>oss-sonatype</serverId>
-          <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+          <serverId>${distribution.id}</serverId>
+          <nexusUrl>${distribution.url}</nexusUrl>
           <autoReleaseAfterClose>true</autoReleaseAfterClose>
         </configuration>
       </plugin>
@@ -200,12 +209,12 @@
 
   <distributionManagement>
     <snapshotRepository>
-      <id>oss-sonatype</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      <id>${distribution.id}</id>
+      <url>${distribution.url.snapshot}</url>
     </snapshotRepository>
     <repository>
-      <id>oss-sonatype</id>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+      <id>${distribution.id}</id>
+      <url>${distribution.url.release}</url>
     </repository>
   </distributionManagement>
 </project>

@@ -1,0 +1,18 @@
+image: devnull-tools/maven
+
+stages:
+  - release
+
+mvn:publish:sonatype:
+  stage: release
+  script:
+    - mvn -P sign,public clean deploy
+  only:
+    - tags
+
+mvn:publish:internal:
+  stage: release
+  script:
+    - mvn -P private clean deploy
+  only:
+    - tags
