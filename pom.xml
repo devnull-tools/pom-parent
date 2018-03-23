@@ -109,14 +109,7 @@
       </build>
     </profile>
     <profile>
-      <id>public</id>
-      <properties>
-        <maven.deploy.skip>true</maven.deploy.skip>
-        <distribution.id>oss-sonatype</distribution.id>
-        <distribution.url>https://oss.sonatype.org/</distribution.url>
-        <distribution.url.release>https://oss.sonatype.org/service/local/staging/deploy/maven2/</distribution.url.release>
-        <distribution.url.snapshot>https://oss.sonatype.org/content/repositories/snapshots</distribution.url.snapshot>
-      </properties>
+      <id>nexus</id>
       <build>
         <plugins>
           <plugin>

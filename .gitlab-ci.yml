@@ -6,7 +6,7 @@ stages:
 mvn:publish:sonatype:
   stage: release
   script:
-    - mvn -P sign,public clean deploy
+    - mvn -P sign,nexus,public clean deploy
   only:
     - tags
 
